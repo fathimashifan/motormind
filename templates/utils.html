@@ -1,0 +1,278 @@
+<style>
+	div#loader div.modal-body{
+		height: 400px;
+		display: block;
+	}
+	/* -------------- loader9 -------------- */
+	.ring img{
+		width: 87px;
+		object-fit: cover;
+		object-position: 0% 0;
+	}
+	.ring
+	{
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+		width:150px;
+		height:150px;
+		background:transparent;
+		border:3px solid #292c37;
+		border-radius:50%;
+		text-align:center;
+		justify-content: center;
+		line-height:150px;
+		font-size:20px;
+		letter-spacing:4px;
+		box-shadow:0 0 20px rgba(0,0,0,.5);
+	}
+	.ring:before
+	{
+		content:'';
+		position:absolute;
+		top:0px;
+		left:0px;
+		width:100%;
+		height:100%;
+		border:3px solid transparent;
+		border-top:3px solid #3ee278;
+		border-right:3px solid #3ee278;
+		border-radius:50%;
+		animation:animateC 0.8s linear infinite;
+	}
+	.ring span
+	{
+		display:block;
+		position:absolute;
+		top:calc(50% - 2px);
+		left:50%;
+		width:50%;
+		height:4px;
+		background:transparent;
+		transform-origin:left;
+		animation:animate 0.8s linear infinite;
+	}
+	.ring span:before
+	{
+		content:'';
+		position:absolute;
+		width:16px;
+		height:16px;
+		border-radius:50%;
+		background:#3ee278;
+		top:-6px;
+		right:-8px;
+		box-shadow:0 0 20px #3ee278;
+	}
+	.ring img{
+		font-size:20px;
+		justify-content: center;
+	}
+	@keyframes animateC
+	{
+		0%
+		{
+			transform:rotate(0deg);
+		}
+		100%
+		{
+			transform:rotate(360deg);
+		}
+	}
+	@keyframes animate
+	{
+		0%
+		{
+			transform:rotate(45deg);
+		}
+		100%
+		{
+			transform:rotate(405deg);
+		}
+	}
+	/* ###############loaderend######################## */
+
+	div.alert svg.bi{
+		width: 32px;
+		height: 32px;
+	}
+	div.alert > *
+	{
+		filter: brightness(150%);
+	}
+</style>
+
+<!-- LOADED _utils.html -->
+<!-- <div id="loader" class="modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content bg-transparent border-0">
+		<div class="modal-body text-center noselect">
+			<div class="ring">
+				<img src="/static/images/icon.png" class="d-inline-block" alt="loader" />
+				<span></span>
+			</div>
+		</div>
+	  </div>
+	</div>
+</div> -->
+
+<!-- Modal Generic-->
+
+<div  id="modal-generic" class="modal" tabindex="-1">
+	<div class="modal-dialog  modal-dialog-centered">
+	<div class="modal-content">
+		<div class="modal-header">
+		<h5 class="modal-title"></h5>
+		<button type="button" class="btn-close button blue-bg" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body text-center">
+		<p></p>
+		</div>
+		<div class="modal-footer">
+	
+	
+		<button type="button" class="btn btn  btn-sm rounded-pill button " data-bs-dismiss="modal">Close</button>
+		</div>
+	</div>
+	</div>
+</div>
+
+<div  id="modal-generic-err" class="modal" tabindex="-1">
+	<div class="modal-dialog  modal-dialog-centered">
+	<div class="modal-content">
+		<div class="modal-header">
+		<h5 class="modal-title"></h5>
+		<button type="button" class="btn-close button" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body text-center">
+		<p></p>
+		</div>
+		<div class="modal-footer">
+		<button type="button" class="btn button" data-bs-dismiss="modal" onclick="$('#modal-register').modal('show')">Close</button>
+
+		</div>
+	</div>
+	</div>
+</div>
+
+{% if messages %}
+	<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+		<symbol id="check-circle-fill" viewBox="0 0 16 16" width="32" height="32" fill="currentColor">
+			<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+		</symbol>
+		<symbol id="info-fill" viewBox="0 0 16 16" width="32" height="32" fill="currentColor" >
+			<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+		</symbol>
+		<symbol id="exclamation-triangle-fill" viewBox="0 0 16 16" width="32" height="32" fill="currentColor">
+			<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+		</symbol>
+	</svg>
+	<div class="modal fade" id="genericModal" tabindex="-1" aria-labelledby="genericModalLabel" aria-hidden="true">
+		<input type="hidden" id="modalStatus" value="0"/>
+		<div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="generic_body">Hi! Have a nice day..</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn  btn-sm rounded-pill button " data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% for message in messages %}
+		{% if forloop.last %}
+			{% if message.level == 20 %}
+				<template id="alert_template">
+					<div class="alert alert-info d-inline-flex text-center mb-0 w-100" role="alert">
+						<svg class="bi me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+						<div class="">{{message|safe}}</div>
+					</div>
+				</template>
+			{% elif message.level == 25 %}
+				<template id="alert_template">
+					<div class="alert alert-success d-inline-flex text-center mb-0 w-100" role="alert">
+						<svg class="bi me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+						<div class="">{{message|safe}}</div>
+					</div>
+				</template>
+			{% elif message.level == 30 %}
+				<template id="alert_template">
+					<div class="alert alert-warning d-inline-flex text-center mb-0 w-100" role="alert">
+						<svg class="bi me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+						<div class="">{{message|safe}}</div>
+					</div>
+				</template>
+			{% elif message.level == 40 %}
+				<template id="alert_template">
+					<div class="alert alert-danger d-inline-flex text-center mb-0 w-100" role="alert">
+						<svg class="bi me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+						<div class="">{{message|safe}}</div>
+					</div>
+				</template>
+			{% else %}
+				<template id="alert_template">
+					<div class="alert alert-info d-inline-flex text-center mb-0 w-100" role="alert">
+						<svg class="bi me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+						<div class="">{{message|safe}}</div>
+					</div>
+				</template>
+			{% endif %}
+			<script>
+				// Level Constant 	Value
+				// DEBUG 	10
+				// INFO 	20
+				// SUCCESS 	25
+				// WARNING 	30
+				// ERROR 	40
+				document.addEventListener('DOMContentLoaded',function(){
+					var temp = document.getElementById("alert_template");
+					var genericModal = new bootstrap.Modal(document.getElementById('genericModal'), {keyboard: false});
+					document.getElementById('generic_body').innerHTML = temp.innerHTML;
+					genericModal.show();
+				});
+			</script>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+            console.info(`Document is now Ready Appending FORM Listener!`);
+            var form = document.getElementsByTagName("form");
+            for (var i = 0; i < form.length; i++) {
+                form[i].addEventListener("submit", function(e){
+                    var loader = new bootstrap.Modal(document.getElementById('loader'), {keyboard: false});
+                    loader.show();
+                });
+            }
+        });
+</script>
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-dark">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="confirmModalLabel">Confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  
+        </div>
+        <form id="delconfirm" action="" method="POST" >
+			{%csrf_token%}
+          <div class="modal-body">
+
+            <h6 id="delmsg"></h6>
+          </div>
+          <div class="modal-footer">
+            <input id="p" name="p" type="hidden" value=0 />
+            <input id="a" name="a" type="hidden" value='d' />
+            <button type="submit" id="delbt1" class="btn btn-danger" data-bs-dismiss="modal">YES</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+<!-- FINISH LOADING _utils.html -->

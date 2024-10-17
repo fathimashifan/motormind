@@ -1,0 +1,116 @@
+{% extends 'home.html' %}
+<style>
+
+     .blog_para{
+        overflow: hidden;
+        line-height: 2rem;
+        max-height: 6rem;
+        -webkit-box-orient: vertical;
+        display: block;
+        display: -webkit-box;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        -webkit-line-clamp:3;
+        text-align: justify!important;
+    }
+
+    </style>
+
+{% block content %}
+
+
+
+
+
+<section id="blog" class="dark-bg">
+    <style>
+        a:hover i.fa-whatsapp{
+            color:#2AC54D!important;
+        }
+        a:hover i.fa-linkedin{
+            color:#0A66C2!important;
+        }
+        a:hover i.fa-twitter{
+            color:#1D9BF0!important;
+        }
+        a:hover i.fa-facebook{
+            color:#1877F2!important;
+        }
+        a:hover i.fa-telegram{
+            color:#28A8E9!important;
+        }
+
+    </style>
+	<div class="container py-3 dark-bg text-white" >
+        <div class="row ">
+            <div class="section-titleproducts col-lg-12  py-5 mb-4 ">
+                    <h2 class="text-center ">Blog</h2><hr style="opacity: 0.1;">
+            </div>
+        </div>
+
+        <div class="product-search" >
+            <div class="row  mt-3 ">
+                <div class="col-12 col-md-8">
+                        <h3 class="p-1 blue-tx">{{data.title}}</h3>
+
+                        <p>Posted on</p>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <p><em>{{ data.created_on|date:"jS F Y" }}</em></p>
+                            </div>
+                            <div class="col-12 col-md-6 text-end ">
+                                {% if request.build_absolute_uri.lower|slice:"-4:" == "ref=" %}
+                                    <a class="fs-3 text-secondary" href="https://wa.me/?text={% filter urlencode %}{{request.build_absolute_uri }}{{data.slug}}{% endfilter %}" data-action="share/whatsapp/share"><i class="fa-brands fa-whatsapp"></i></a>
+                                    <a class="fs-3 text-secondary" href="https://www.linkedin.com/shareArticle?url={% filter urlencode %}{{request.build_absolute_uri }}{{data.slug}}{% endfilter %}" data-action="share/whatsapp/share"><i class="fa-brands fa-linkedin"></i></a>
+                                    <a class="fs-3 text-secondary" href="https://twitter.com/intent/tweet?url={% filter urlencode %}{{request.build_absolute_uri }}{{data.slug}}{% endfilter %}" data-action="share/whatsapp/share"><i class="fa-brands fa-twitter"></i></a>
+                                    <a class="fs-3 text-secondary" href="https://www.facebook.com/sharer.php?u={% filter urlencode %}{{request.build_absolute_uri }}{{data.slug}}{% endfilter %}" data-action="share/whatsapp/share"><i class="fa-brands fa-facebook"></i></a>
+                                    <a class="fs-3 text-secondary" href="https://t.me/share/url?text=Zazzzy&url={% filter urlencode %}{{request.build_absolute_uri }}{{data.slug}}{% endfilter %}" data-action="share/whatsapp/share"><i class="fa-brands fa-telegram"></i></a>
+                                {% else %}
+                                    <a class="fs-3 text-secondary" href="https://wa.me/?text={% filter urlencode %}{{ request.build_absolute_uri }}{% endfilter %}" data-action="share/whatsapp/share"><i class="fa-brands fa-whatsapp"></i></a>
+                                    <a class="fs-3 text-secondary" href="https://www.linkedin.com/shareArticle?url={% filter urlencode %}{{ request.build_absolute_uri }}{% endfilter %}" data-action="share/whatsapp/share"><i class="fa-brands fa-linkedin"></i></a>
+                                    <a class="fs-3 text-secondary" href="https://twitter.com/intent/tweet?url={% filter urlencode %}{{ request.build_absolute_uri }}{% endfilter %}" data-action="share/whatsapp/share"><i class="fa-brands fa-twitter"></i></a>
+                                    <a class="fs-3 text-secondary" href="https://www.facebook.com/sharer.php?u={% filter urlencode %}{{ request.build_absolute_uri }}{% endfilter %}" data-action="share/whatsapp/share"><i class="fa-brands fa-facebook"></i></a>
+                                    <a class="fs-3 text-secondary" href="https://t.me/share/url?text=Zazzzy&url={% filter urlencode %}{{request.build_absolute_uri }}{% endfilter %}" data-action="share/whatsapp/share"><i class="fa-brands fa-telegram"></i></a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                        <hr>
+
+                    <div style="width:100%;">
+                        <div class=" mt-3 " style="float:right; ">
+                            <img draggable="false" style="padding-left: 12px;" src="/media/{{data.header_image}}" alt=""></div>
+                        <div style="float:none; ">
+                        <span  style="text-align: justify;">
+                          <p class="blog_description" >{{data.content|safe}}</p>
+                         </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog_details scroll_user col-12 col-md-4">
+                    <h4 class="p-2 black-bg text-white" style="height: 43px;">Latest Blog</h4>
+                    {% for i in blog_list %}
+                        <h5 ><a class="blue-tx" href="blogreadmoredescript?ref={{i.slug}}">{{i.title}}</a></h5>
+                        <span class="blog_para" style="text-align: justify;overflow: hidden;line-height: 2em;
+                        -webkit-box-orient: vertical;
+                        display: block;
+                        display: -webkit-box;
+                        overflow: hidden !important;
+                        text-overflow: ellipsis;
+                        -webkit-line-clamp:4;
+                        text-align: justify!important;">
+                            <p class="blue-tx" >{{i.content|safe}}</p>
+                        </span>
+                        <a  href="blogreadmoredescript?ref={{i.slug}}" class="text-primary" >Read more</a>
+                            <p class="blue-tx">Published on:{{ i.created_on|date:"jS F Y" }}</p><hr>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,111 @@
+
+<style>
+
+ 
+    .service-card {
+        transition: 0.5s;
+        cursor: pointer;
+      }
+      
+      .service-card .item-card-title {
+        font-size: 20px;
+        transition: 1s;
+        cursor: pointer;
+      }
+      
+      .service-card .item-card-title i {
+        font-size: 15px;
+        transition: 1s;
+        cursor: pointer;
+        color: #ffa710;
+      }
+      
+      .service-card .card-title i:hover {
+        transform: scale(1.25) rotate(100deg);
+        color: #18d4ca;
+      }
+      
+      .service-card:hover {
+        transform: scale(1.05);
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+      }
+      
+      .service-card .card-text {
+        height: 120px;
+        
+      }
+      
+      .service-card::before,
+      .service-card::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: scale3d(0, 0, 1);
+        transition: transform .3s ease-out 0s;
+        background: rgba(255, 255, 255, 0.1);
+        content: '';
+        pointer-events: none;
+      }
+      
+      .service-card::before {
+        transform-origin: left top;
+      }
+      
+      .service-card::after {
+        transform-origin: right bottom;
+      }
+      
+      .service-card:hover::before,
+      .service-card:hover::after,
+      .service-card:focus::before,
+      .service-card:focus::after {
+        transform: scale3d(1, 1, 1);
+      }
+     
+      .service-card img {
+        width: 100%; /* Ensures the image width fits the card width */
+        height: 200px; /* Fixed height for all images */
+        object-fit: cover; /* Crops the image to fill the container while maintaining aspect ratio */
+        border-radius: 5px; /* Optional: adds rounded corners to the images */
+    }
+
+</style>
+
+<section id="service">
+    <article class="workflow black-bg">
+        <div class="row ">
+            <div class="col-lg-12 mb-3 mt-2 ">
+                <h3 class="text-center text-white ">MAJOR SERVICE</h3>
+            </div>
+        </div>
+        <div class="major service ">
+            <div class="container">
+            <div class="row">
+                {% for i in service_list%}   
+             
+                 <div class="services  col-12  col-sm-6 col-md-4 col-xl-3 mb-3 d-flex justify-content-center">
+
+                 <div class="card item-card service-card card-block dark-bg">
+                    <h4 class="card-title text-right"></h4>
+                  <img src="../media/{{i.images}}" alt="Photo of sunset" class="img-fluid">
+                      <h2 class="item-card-title mt-3 mb-3 text-center text-white">{{i.name}}</h2>
+                      <p class="card-text text-white text-center">{{i.description}} </p> 
+                </div>
+                  </div>
+                 
+              {% endfor %}
+        
+            </div> 
+        </div>   
+         </div>
+         {% if '/services' not in request.get_full_path%}
+         <div class="d-flex justify-content-center">
+
+         <a href="{% url 'services'%}" class="btn btn-primary text-center mb-5 ">VIEW ALL SERVICES</a>
+
+        </div>
+        {% endif %}
+    </article>
+</section>

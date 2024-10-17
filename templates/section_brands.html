@@ -1,0 +1,61 @@
+<style>
+    .imagecarousel-wrapper {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .imagecarousel {
+        display: flex;
+        gap: 20px;
+        animation: bannermove 10s linear infinite;
+    }
+    
+    .imagecarousel img {
+        height: 160px;
+        width:200px;
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5); /* Increased shadow size and opacity */
+    }
+    
+    @keyframes bannermove {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .imagecarousel img {
+            height: 100px;
+        }
+    }
+</style>
+
+<section id="brands">
+    <article class="brands_dealed black-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mb-3 mt-5">
+                    <h3 class="text-center text-white">Brands We Deal In</h3>
+                </div>
+            </div>
+        </div>
+        <div class="topbrands">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="imagecarousel-wrapper">
+                            <div class="imagecarousel">
+                                {% for i in brands_list %}
+                                    <img src="../media/{{i.brand_images}}" class="card-img-top img-cover" alt="brand logo">
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>   
+        </div>
+    </article>
+</section>

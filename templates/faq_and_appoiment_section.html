@@ -1,0 +1,372 @@
+
+
+<style>
+    .contactinfo::placeholder {
+        opacity: 1; /* Firefox */
+        padding:0em!important;
+        }
+        .contactinfo:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        padding:0em!important;
+        }
+        .contactinfo::-ms-input-placeholder { /* Microsoft Edge */
+        
+        padding:0em!important;
+        }
+        .contactinfo.form-control{
+            border-color:  var(--white)!important;
+            }
+			.accordion-button:focus {
+				box-shadow: none;
+				border-color: red;
+			}
+
+
+			.accordion {
+				margin-bottom: 10px;
+			
+				.accordion-btn {
+					position: relative;
+					background-color:  var(--dark)!important;
+					background-image: linear-gradient(122deg, #292928, #424242);
+					border: none;
+					padding: 15px 20px;
+					text-align: left;
+					cursor: pointer;
+				font-weight: bold;
+				box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+				list-style-image: none;
+				
+				&::-webkit-details-marker {
+				  background: none;
+				  color: transparent;
+				}
+			
+					&::after {
+						content: "›";
+				  position: absolute;
+				  top: 50%;
+				  right: 10px;
+				  font-size: 35px;
+				  font-family: monospace;
+				  width: 35px;
+				  height: 35px;
+				  text-align: center;
+				  border-radius: 50%;
+				  color: #000000;
+				  border: 2px solid #000000;
+				  transform: translate(0%, -50%) rotate(0deg);
+				  box-sizing: border-box;
+				  display: flex;
+				  align-items: center;
+				  padding-bottom: 4px;
+				  padding-left: 2px;
+				  justify-content: center;
+				  font-weight: normal;
+				  transition: all .3s ease;
+					}
+				}
+			  
+			  .accordion-content {
+					background-color:   var(--dark)!important;
+				box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+				
+				> *{
+				  padding: 10px 20px;
+				}
+				}
+			
+			  &[open]{
+				.accordion-btn::after {
+					transform: translate(0%, -50%) rotate(90deg);
+				}
+				
+				summary ~ *{
+				  overflow: hidden;
+				  animation: heightUp 1s ease-in-out;
+				}
+				}
+			}
+			
+			@keyframes heightUp {
+				0% {
+					max-height: 0;
+				}
+				100% {
+					max-height: 2000px; 
+				}
+			}
+			
+		
+</style>
+
+<section id="faq-area">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 col-lg-6 footer-left hero_area black-bg text-white" style="background-image: url(/static/images/contact-us/contact_bg.jpg);background-size: cover;background-repeat: no-repeat;">
+				<div class="m-auto ms-lg-auto me-lg-0 mt-5" style="max-width:648px;">
+					<div class="container mt-5  mb-3">
+
+						<h3>Questions Mostly Asked By Our Customers</h3>
+
+							<details class="accordion">
+							<summary class="accordion-btn">What types of vehicles can you service at your repair center?</summary>
+							<div class="accordion-content">
+								<p class="text-white">
+									Our highly trained technicians are skilled in servicing a wide range of vehicle makes and models (All American, German, European &amp; Super Cars), ensuring that we can handle any auto repair need.
+								</p>
+							</div>
+							</details>
+
+							<details class="accordion">
+							<summary class="accordion-btn">What makes you the best repair shop in Ajman?</summary>
+							<div class="accordion-content">
+								<p class="text-white">
+									Our state-of-the-art facility, highly trained technicians, and dedication to customer satisfaction make us the best repair shop in Ajman. We offer premium auto repair services and use advanced tools and equipment to deliver exceptional results.
+								</p>
+							</div>
+							</details>
+
+							<details class="accordion">
+							<summary class="accordion-btn">How long does it typically take for you to complete a repair?</summary>
+							<div class="accordion-content">
+								<p class="text-white">
+									The duration of the repair depends on the complexity of the issue. Our highly trained technicians work efficiently to complete repairs as quickly as possible, without compromising on quality.
+								</p>
+							</div>
+							</details>
+
+							<details class="accordion">
+							<summary class="accordion-btn">Do you offer any guarantees or warranties on your repair work?</summary>
+							<div class="accordion-content">
+								<p class="text-white">
+									Yes, we provide guarantees and warranties on our repair services to ensure customer satisfaction and peace of mind. For more details on the terms and conditions, please contact us directly.
+								</p>
+							</div>
+							</details>
+
+							<details class="accordion">
+								<summary class="accordion-btn">How do your prices compare to other auto repair centers in Ajman?</summary>
+								<div class="accordion-content">
+									<p class="text-white">
+										The Motor Mind provides unbeatable prices for our high-quality auto repair services in Ajman. With our competitive rates, you can expect exceptional services at a cost that won’t strain your budget.
+									</p>
+								</div>
+								</details>
+
+						<!-- <div class="accordion accordion-flush mt-5  " id="accordionExample" >
+							<div class="accordion-item black-bg text-white ">
+							  <h2 class="accordion-header" id="headingOne">
+								<button class="accordion-button dark-bg text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								  Accordion Item #1
+								</button>
+							  </h2>
+							  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+								  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+								</div>
+							  </div>
+							</div>
+							<div class="accordion-item black-bg text-white">
+							  <h2 class="accordion-header" id="headingTwo">
+								<button class="accordion-button collapsed dark-bg text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+								  Accordion Item #2
+								</button>
+							  </h2>
+							  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+								  <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+								</div>
+							  </div>
+							</div>
+							<div class="accordion-item black-bg text-white">
+							  <h2 class="accordion-header" id="headingThree">
+								<button class="accordion-button collapsed dark-bg text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								  Accordion Item #3
+								</button>
+							  </h2>
+							  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+								  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+								</div>
+							  </div>
+							</div>
+						  </div> -->
+
+				
+
+
+
+
+
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-6 footer-right black-bg text-white">
+				<div class="m-auto me-lg-auto ms-lg-0 mx-2 " style="max-width:648px;">
+					<div class="container mt-5 ">
+						<h3 class="white-tx">Our Contact</h3>
+						<p class="  white-tx">Motor mind  would love to hear from you ! </p>
+						<p class="white-tx">
+							Please contact us with any questions, concerns, or features you would like to have<br>
+							added to improve your motor mind experience!
+						</p>
+					</div>
+					<form class="container" action="{% url 'contact'%}" method="POST" id="contactform" >
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-sm-12 col-xs-12 col-lg-6 col-md-6 col-xl-6 mb-3">
+								<input name="name" class="contactinfo form-control form-sm-control text-white text-capitalize" id="contactname" placeholder="Name :" style="background-color: transparent;" type="text" required>
+								<span id="erruser" class="errclr"></span>
+							</div>
+							<div class="col-sm-12 col-xs-12 col-lg-6 col-md-6  col-xl-6 mb-3">
+								<input class="contactinfo form-control form-sm-control text-white text-capitalize" name="companyname" id="brandname" placeholder="Company Name :" style="background-color: transparent;" type="text" required>
+							</div>
+							<div class="col-sm-12 col-xs-12 col-lg-6 col-md-6 col-xl-6 mb-3">
+								<input class="contactinfo form-control form-sm-control text-white text-capitalize" id="mobnumber" name="phone" placeholder="Mobile No :" style="background-color: transparent;" type="text" required>
+							</div>
+							<div class="col-sm-12 col-xs-12 col-lg-6 col-md-6 col-xl-6 mb-3">
+								<input class="contactinfo form-control form-sm-control text-white" id="contact_email" name="email" placeholder="Email:" style="background-color: transparent;" type="email" required>
+							</div>
+							<div class="textarea col-12 mb-3">
+								<textarea class="contactinfo form-control form-sm-control  text-white  " name="subject" id="msg" placeholder="Message :" style="height: 74px!important;background-color: transparent;"  id="" cols="52" rows="3" name="comment" required></textarea>
+							</div>
+							<div class="col-12 mb-3">
+								<div class="g-recaptcha d-flex justify-content-center" data-sitekey="6Le9Wb4SAAAAAFO8DF52-BOEpSvRDjfTISvrco2N"></div>
+							</div>
+							<div class="mb-3">
+								<button type="submit"  class=" px-2 px-4 btn">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script type="text/javascript">
+    const formcontact = document.getElementById('contactform');
+    formcontact.addEventListener('submit', event => {
+        firstname = document.getElementById("contactname").value;
+		companyname=document.getElementById("brandname").value;
+
+        var regex = /^[a-z A-Z]+$/;
+        if(firstname == ""){
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  name canot be empty</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+
+            return;
+        }else{
+            if (regex.test(firstname)==false){
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  digits and special character is not allowed in name</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+            }
+        }
+        if (firstname.length<2)
+        {
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'> name can't be less than 2 character</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+
+        }
+        if (firstname.length>25)
+        {
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  first name can't be more thanthan 25 character</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+        }
+		var regex = /^\w[\w.\-#&\s]*$/;
+        if(companyname == ""){
+            // alert("Please provide name")
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>company name  Cannot be null</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+
+            return;
+        }else{
+            //check the data  whether it is valid or not
+            if (regex.test(companyname)==false){
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>special charcter not allowed</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+            }
+
+        }
+        if (companyname.length<2)
+        {
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  first name can't be less than 2 character</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+
+        }
+        if (companyname.length>25)
+        {
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  first name can't be more thanthan 25 character</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+        }
+
+
+		var mob = document.getElementById("mobnumber")
+		if  (mob.value.toString().indexOf("00") == 0)
+			{
+			mob.value.replace(/\D/g, "");
+			 }
+		else
+			 {
+			 mob.value="00"+mob.value.replace(/\D/g, "");
+			 }
+
+		if(mob.value.length < 10){
+			$("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  mobile number must be greater than 10</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+
+			return;
+		 }
+		 if(mob.value.length > 18){
+			$("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  mobile number cant be greater than 18</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+
+			return;
+		}
+		var ema = document.getElementById("contact_email")
+		var regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$|^$/;
+
+		if (regex.test(ema.value)==false){
+		$("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'> PLease enter correct email id</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+		return;
+
+		}
+
+		if ( $('#g-recaptcha-response-2').val() === '' ) {
+			event.preventDefault()
+			event.stopPropagation()
+			$("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>Captcha not Verified as Human!</span>");
+			$('#modal-generic').modal('show');
+			return;
+		}
+
+    });
+</script>

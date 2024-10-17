@@ -1,0 +1,26 @@
+<section id="recent-works">
+    <article class="recent black-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mb-3 mt-5">
+                    <h3 class="text-center text-white">Our Recent works</h3>
+                </div>
+            </div>
+        </div>
+        <div class="recent-work-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="imagecarousel-wrapper">
+                            <div class="imagecarousel">
+                                {% for i in recent_works_list %}
+                                    <img src="../media/{{i.work_images}}" class="card-img-top img-cover" alt="brand logo">
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>   
+        </div>
+    </article>
+</section>

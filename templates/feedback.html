@@ -1,0 +1,128 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+    <div class="container">
+        
+        <h1>Motor Mind Feedback Form</h1>
+        <h4 id="errorText"></h4>
+
+        <form id="surveyForm" method="POST" action="{% url 'feedback' %}">
+            {% csrf_token %}
+
+            <label for="name">
+                Name:
+            </label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="mobnumber">
+                Mobile number:
+            </label><br>
+            <input id="mobnumber" name="phone" placeholder="Mobile No :" type="text" required><br>
+
+            <label for="customer_type">
+                Are you a Company or Personal customer?
+            </label><br>
+            <select id="customer_type" name="customer_type" required>
+                <option value="Company">Company</option>
+                <option value="Personal">Personal</option>
+            </select><br>
+
+            <label for="service_satisfaction">
+                How satisfied were you with the service?
+            </label><br>
+            <select id="service_satisfaction" name="service_satisfaction" required>
+                <option value="Very Satisfied">Very Satisfied</option>
+                <option value="Satisfied">Satisfied</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Dissatisfied">Dissatisfied</option>
+                <option value="Very Dissatisfied">Very Dissatisfied</option>
+            </select><br>
+
+            <label for="vehicle_condition">
+                How would you rate the condition of your vehicle after service?
+            </label><br>
+            <select id="vehicle_condition" name="vehicle_condition" required>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+            </select><br>
+
+            <label for="staff_friendliness">
+                How would you rate the friendliness of the staff?
+            </label><br>
+            <select id="staff_friendliness" name="staff_friendliness" required>
+                <option value="Very Friendly">Very Friendly</option>
+                <option value="Friendly">Friendly</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Unfriendly">Unfriendly</option>
+                <option value="Very Unfriendly">Very Unfriendly</option>
+            </select><br>
+
+            <label for="price_rating">
+                How would you rate the repair cost of the services?
+            </label><br>
+            <select id="price_rating" name="price_rating" required>
+                <option value="high">Very high</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">low</option>
+                <option value="Very low">Very low</option>
+            </select><br>
+
+            <label for="additional_feedback">
+                Additional Feedback (optional):
+            </label><br>
+            <textarea id="additional_feedback" name="additional_feedback"></textarea><br>
+
+            <button type="submit">
+                Submit
+            </button>
+        </form>
+
+        <button class="back-button text-white" onclick="window.history.back();">Go Back</button>
+    </div>
+
+    <script>
+        document.getElementById("surveyForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let nameField = document.getElementById("name");
+            let mobnumberField = document.getElementById("mobnumber");
+            let errorText = document.getElementById("errorText");
+
+            let name = nameField.value;
+            let mobnumber = mobnumberField.value;
+
+            let nameRegex = /^[A-Za-z ]+$/;
+            let mobnumberRegex = /^[0-9]{10}$/;
+
+            if (!name.match(nameRegex)) {
+                nameField.classList.add("error");
+                errorText.innerHTML = "Name should only contain alphabets and spaces.";
+                errorText.classList.add("errorText");
+                return;
+            } else if (!mobnumber.match(mobnumberRegex)) {
+                mobnumberField.classList.add("error");
+                errorText.innerHTML = "Mobile number should be a 10-digit number.";
+                errorText.classList.add("errorText");
+                return;
+            }
+
+            if (nameField.classList.contains("error")) {
+                nameField.classList.remove("error");
+            }
+            if (mobnumberField.classList.contains("error")) {
+                mobnumberField.classList.remove("error");
+            }
+
+            errorText.innerHTML = "Submitted Successfully";
+            errorText.classList.add("successText");
+
+            setTimeout(function () {
+                document.getElementById("surveyForm").submit();
+            }, 2000);
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,231 @@
+<style>
+    .rounded-border {
+        max-width: 100%;
+        height: auto;
+        max-height: 100px; /* Set your desired max height */
+        width: auto; /* Maintain aspect ratio */
+       
+      }
+
+      .circles-wrapper {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .circle-ring  {
+        border: 2px solid rgb(61, 60, 60);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        position: relative;
+      }
+      
+      .circle-ring ::before {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: #000000;
+        top: -6px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px 6px rgba(37, 37, 37, 0.8);
+      }
+      
+      .circle-lg {
+        width: 170px;
+        height: 170px;
+        animation: rotateCircles 3.1s linear infinite;
+      }
+      
+      .circle-md {
+        width: 130px;
+        height: 130px;
+        animation: rotateCircles 3s linear infinite;
+      }
+      
+      .circle-md::before {
+        width: 10px;
+        height: 10px;
+      }
+      
+      .circle-sm {
+        width: 100px;
+        height: 100px;
+        animation: rotateCircles 2.5s linear infinite;
+      }
+      
+      .circle-sm::before {
+        width: 10px;
+        height: 10px;
+      }
+      
+      
+      @keyframes rotateCircles {
+        from {
+          transform: rotate(0);
+        } to {
+          transform: rotate(360deg);
+        }
+      }
+      .fixed-image-container {
+        top:-163px;
+        position: relative;
+        left:-10px;
+        z-index: 1; /* Ensure the image appears above the circles */
+    }
+     
+    
+   
+    
+  
+  </style>
+
+<section id="badgeone">
+    <article class="badge-first">
+        <div class="text-center black-bg text-white  ">
+        <div class="row  ">
+            <div class="  col-6 col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 dark-bg ">
+                
+                <div class="circles-wrapper">
+               
+                    <div class="circle-ring circle-lg">
+                      <div class="circle-ring circle-md">
+                        <div class="circle-ring  circle-sm">
+                            
+                        </div>
+                      </div>
+                    </div>  
+                    <div class="fixed-image-container">
+                        <img src="../static/images/1.png" class="mt-4 mb-4 img-cover rounded-border" alt="Free car checkup">
+                    </div>  
+               
+                </div>
+
+
+                       
+                 
+      
+              
+                <p>Free vehicle checkup</p>
+
+             
+            </div>
+            <div class=" col-6 col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2  dark-bg ">
+                <div class="circles-wrapper">
+               
+                    <div class="circle-ring circle-lg">
+                      <div class="circle-ring circle-md">
+                        <div class="circle-ring  circle-sm">
+                            
+                        </div>
+                      </div>
+                    </div>  
+                    <div class="fixed-image-container">
+                        <img src="../static/images/2.png" class=" mt-4 mb-4 img-cover rounded-border" alt="Instant Quote">
+                    </div>  
+               
+                </div>
+                
+              
+           
+                <p>Instant Quote</p>
+            </div>
+            <div class=" col-6 col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2   dark-bg">
+                <div class="circles-wrapper">
+               
+                    <div class="circle-ring circle-lg">
+                      <div class="circle-ring circle-md">
+                        <div class="circle-ring  circle-sm">
+                            
+                        </div>
+                      </div>
+                    </div>  
+                    <div class="fixed-image-container">
+                        <img src="../static/images/3.png" class=" mt-4 mb-4 img-cover rounded-border" alt="Qualified Staff">
+                    </div>  
+               
+                </div>
+                
+                
+              
+           
+                <p>Qualified Staff</p>
+            </div>
+            <div class=" col-6 col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2   dark-bg">
+                <div class="circles-wrapper">
+               
+                    <div class="circle-ring circle-lg">
+                      <div class="circle-ring circle-md">
+                        <div class="circle-ring  circle-sm">
+                            
+                        </div>
+                      </div>
+                    </div>  
+                    <div class="fixed-image-container">
+                        <img src="../static/images/4.png" class=" mt-4 mb-4 img-cover rounded-border" alt="Repair Warranty">
+                    </div>  
+               
+                </div>
+               
+                
+           
+                <p>Repair Warranty</p>
+            </div>
+            <div class=" col-6 col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2   dark-bg">
+
+                <div class="circles-wrapper">
+               
+                    <div class="circle-ring circle-lg">
+                      <div class="circle-ring circle-md">
+                        <div class="circle-ring  circle-sm">
+                            
+                        </div>
+                      </div>
+                    </div>  
+                    <div class="fixed-image-container">
+                        <img src="../static/images/5.png" class="mt-4 mb-4 img-cover rounded-border" alt="Pick-Up & Delivery">
+                    </div>  
+               
+                </div>
+               
+                
+              
+               
+           
+                <p>Pick-Up & Delivery</p>
+            </div>
+            <div class=" col-6 col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2   dark-bg">
+                <div class="circles-wrapper">
+               
+                    <div class="circle-ring circle-lg">
+                      <div class="circle-ring circle-md">
+                        <div class="circle-ring  circle-sm">
+                            
+                        </div>
+                      </div>
+                    </div>  
+                    <div class="fixed-image-container">
+                        <img src="../static/images/6.png" class=" mt-4 mb-4 img-cover rounded-border" alt="Dedicated customer care service">
+                    </div>  
+               
+                </div>
+               
+                
+            
+                <p>customer care service</p>
+            </div>
+           
+          
+           
+          
+
+                
+               
+      
+        </div>
+        </div>
+
+
+    </article>
+</section>        

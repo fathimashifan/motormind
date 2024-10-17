@@ -1,0 +1,140 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+
+<section id="service">
+    <article class="workflow black-bg">
+        <div class="row">
+            <div class="col-lg-12 mb-3 mt-2">
+                <h3 class="text-center text-white">Motor Mind Feedback Form</h3>
+                <div class="col-lg-12 footer-right black-bg text-white">
+                    <div class="container">
+                        <h4 id="errorText" class="text-center"></h4>
+                
+                        <form id="surveyForm" method="POST" action="{% url 'feedback' %}" class="form-contact">
+                            {% csrf_token %}
+                
+                            <div class="mb-3 col-md-6 w-50 mx-auto">
+                                <label for="name" class="form-label">Name:</label>
+                                <input type="text" id="name" name="name" class="form-control form-sm-control contactinfo text-dark text-capitalize" required>
+                            </div>
+                
+                            <div class="mb-3 col-md-6 w-50 mx-auto">
+                                <label for="mobnumber" class="form-label">Mobile number:</label>
+                                <input id="mobnumber" name="phone" placeholder="Mobile No :" type="text" class="form-control form-sm-control contactinfo text-dark" required>
+                            </div>
+                
+                            <div class="mb-3 col-md-6 w-50 mx-auto">
+                                <label for="customer_type" class="form-label">Are you a Company or Personal customer?</label>
+                                <select id="customer_type" name="customer_type" class="form-select form-sm-control contactinfo text-dark" required>
+                                    <option value="Company">--select--</option>
+                                    <option value="Company">Company</option>
+                                    <option value="Personal">Personal</option>
+                                </select>
+                            </div>
+                
+                            <div class="mb-3 col-md-6 w-50 mx-auto">
+                                <label for="service_satisfaction" class="form-label">How satisfied were you with the service?</label>
+                                <select id="service_satisfaction" name="service_satisfaction" class="form-select form-sm-control contactinfo text-dark" required>
+                                    <option value="Company">--select--</option>
+                                    <option value="Very Satisfied">Very Satisfied</option>
+                                    <option value="Satisfied">Satisfied</option>
+                                    <option value="Neutral">Neutral</option>
+                                    <option value="Dissatisfied">Dissatisfied</option>
+                                    <option value="Very Dissatisfied">Very Dissatisfied</option>
+                                </select>
+                            </div>
+                
+                            <div class="mb-3 col-md-6 w-50 mx-auto">
+                                <label for="vehicle_condition" class="form-label">How would you rate the condition of your vehicle after service?</label>
+                                <select id="vehicle_condition" name="vehicle_condition" class="form-select form-sm-control contactinfo text-dark" required>
+                                    <option value="Company">--select--</option>
+                                    <option value="Excellent">Excellent</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Fair">Fair</option>
+                                    <option value="Poor">Poor</option>
+                                </select>
+                            </div>
+                
+                            <div class="mb-3 col-md-6 w-50 mx-auto">
+                                <label for="staff_friendliness" class="form-label">How would you rate the friendliness of the staff?</label>
+                                <select id="staff_friendliness" name="staff_friendliness" class="form-select form-sm-control contactinfo text-dark" required>
+                                    <option value="Company">--select--</option>
+                                    <option value="Very Friendly">Very Friendly</option>
+                                    <option value="Friendly">Friendly</option>
+                                    <option value="Neutral">Neutral</option>
+                                    <option value="Unfriendly">Unfriendly</option>
+                                    <option value="Very Unfriendly">Very Unfriendly</option>
+                                </select>
+                            </div>
+                
+                            <div class="mb-3 col-md-6 w-50 mx-auto">
+                                <label for="price_rating" class="form-label">How would you rate the repair cost of the services?</label>
+                                <select id="price_rating" name="price_rating" class="form-select form-sm-control contactinfo text-dark" required>
+                                    <option value="Company">--select--</option>
+                                    <option value="Very high">Very high</option>
+                                    <option value="high">High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="low">Low</option>
+                                    <option value="Very low">Very low</option>
+                                </select>
+                            </div>
+                
+                            <div class="mb-3 col-md-6 w-50 mx-auto">
+                                <label for="additional_feedback" class="form-label">Additional Feedback (optional):</label>
+                                <textarea id="additional_feedback" name="additional_feedback" class="form-control form-sm-control contactinfo text-dark"></textarea>
+                            </div>
+                            <div class="mb-3 col-md-6  mx-auto">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
+                        </form>
+                        <div class="mb-3 col-md-6 w-50 mx-auto">
+                        <button class="btn btn-secondary mt-3 text-white" onclick="window.history.back();">Go Back</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<script>
+    document.getElementById("surveyForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let nameField = document.getElementById("name");
+        let mobnumberField = document.getElementById("mobnumber");
+        let errorText = document.getElementById("errorText");
+
+        let name = nameField.value;
+        let mobnumber = mobnumberField.value;
+
+        let nameRegex = /^[A-Za-z ]+$/;
+
+        if (!name.match(nameRegex)) {
+            nameField.classList.add("error");
+            errorText.innerHTML = "Name should only contain alphabets and spaces.";
+            errorText.classList.add("errorText");
+            return;
+        }
+
+        if (nameField.classList.contains("error")) {
+            nameField.classList.remove("error");
+        }
+        if (mobnumberField.classList.contains("error")) {
+            mobnumberField.classList.remove("error");
+        }
+
+        errorText.innerHTML = "Submitted Successfully";
+        errorText.classList.add("successText");
+
+        setTimeout(function () {
+            document.getElementById("surveyForm").submit();
+        }, 2000);
+    });
+</script>
+
+{% endblock %}

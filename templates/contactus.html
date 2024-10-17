@@ -1,0 +1,225 @@
+{% extends 'home.html' %}
+{% block content %}
+
+
+
+<style type="text/css">
+    
+</style>
+
+<section id="contact-area" data-scroll-index="6"  class="dark-bg text-white">
+    <div class="container py-5 dark-bg">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="cont-info-single">
+                    <h5>Address:</h5>
+                    <a href="#">
+                        <p>AL JURF-INDUTRIAL AREA 2
+                            <br> AJMAN, U.A.E
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                <div class="cont-info-single">
+                    <h5>Email:</h5><a href="mailto:admin@50blocks.io">
+                        <p> motormindautouae@gmail.com</p>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="cont-info-single">
+                    <h5>Phone:</h5>
+                    <a href="tel:+971 0505489326">
+                        <p>+971 0505489326</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <!--start heading-->
+            <div class="col-md-8">
+               
+                <div class="sec-heading">
+                    <h2>Contact Us</h2>
+                </div>
+            </div>
+            <!--end heading-->
+        </div>
+        <div class="row ">
+            <!--start contact form-->
+            <div class="col-lg-7 col-md-7 ">
+                <div class="contact-form">
+                    <form class="container" action="" method="POST" id="contactform" >
+						{% csrf_token %}
+						<div class="row text-dark">
+							<div class="col-sm-12 col-xs-12 col-lg-6 col-md-6 col-xl-6 mb-3">
+								<input name="name" class="contactinfo form-control form-sm-control  text-white text-capitalize" id="contactname" placeholder="Name :" style="background-color: transparent;" type="text" required>
+								<span id="erruser" class="errclr"></span>
+							</div>
+							<div class="col-sm-12 col-xs-12 col-lg-6 col-md-6  col-xl-6 mb-3">
+								<input class="contactinfo form-control form-sm-control text-white  text-capitalize" name="companyname" id="brandname" placeholder="Company Name :" style="background-color: transparent;" type="text" required>
+							</div>
+							<div class="col-sm-12 col-xs-12 col-lg-6 col-md-6 col-xl-6 mb-3">
+								<input class="contactinfo form-control form-sm-control text-white text-capitalize" id="mobnumber" name="phone" placeholder="Mobile No :" style="background-color: transparent;" type="text" required>
+							</div>
+							<div class="col-sm-12 col-xs-12 col-lg-6 col-md-6 col-xl-6 mb-3">
+								<input class="contactinfo form-control form-sm-controltext-white text-white " id="contact_email" name="email" placeholder="Email:" style="background-color: transparent;" type="email" required>
+							</div>
+							<div class="textarea col-12 mb-3">
+								<textarea class="contactinfo form-control form-sm-control  text-white  " name="subject" id="msg" placeholder="Message :" style="height: 74px!important;background-color: transparent;"  id="" cols="52" rows="3" name="comment" required></textarea>
+							</div>
+						
+							<div class="mb-3">
+								<button type="submit"  class=" px-2 px-4 btn">Submit</button>
+							</div>
+						</div>
+					</form>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d115291.97324491663!2d55.45318227559145!3d25.44247021295952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3ef5f91cdfa4e34b%3A0x529e62f1f308197b!2sAL%20JURF%20-%20industrial%20area%202%20-%20Ajman%20-%20United%20Arab%20Emirates!3m2!1d25.442493199999998!2d55.5355838!5e0!3m2!1sen!2sin!4v1725041215224!5m2!1sen!2sin"
+                    width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    const formcontact = document.getElementById('contactform');
+    formcontact.addEventListener('submit', event => {
+        firstname = document.getElementById("contactname").value;
+		companyname=document.getElementById("brandname").value;
+
+        var regex = /^[a-z A-Z]+$/;
+        if(firstname == ""){
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  name canot be empty</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+
+            return;
+        }else{
+            if (regex.test(firstname)==false){
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  digits and special character is not allowed in name</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+            }
+        }
+        if (firstname.length<2)
+        {
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'> name can't be less than 2 character</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+
+        }
+        if (firstname.length>25)
+        {
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  first name can't be more thanthan 25 character</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+        }
+		var regex = /^\w[\w.\-#&\s]*$/;
+        if(companyname == ""){
+            // alert("Please provide name")
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>company name  Cannot be null</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+
+            return;
+        }else{
+            //check the data  whether it is valid or not
+            if (regex.test(companyname)==false){
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>special charcter not allowed</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+            }
+
+        }
+        if (companyname.length<2)
+        {
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  first name can't be less than 2 character</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+
+        }
+        if (companyname.length>25)
+        {
+            $("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  first name can't be more thanthan 25 character</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+                return;
+        }
+
+
+		var mob = document.getElementById("mobnumber")
+		if  (mob.value.toString().indexOf("00") == 0)
+			{
+			mob.value.replace(/\D/g, "");
+			 }
+		else
+			 {
+			 mob.value="00"+mob.value.replace(/\D/g, "");
+			 }
+
+		if(mob.value.length < 10){
+			$("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  mobile number must be greater than 10</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+
+			return;
+		 }
+		 if(mob.value.length > 18){
+			$("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>  mobile number cant be greater than 18</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+
+			return;
+		}
+		var ema = document.getElementById("contact_email")
+		var regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$|^$/;
+
+		if (regex.test(ema.value)==false){
+		$("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'> PLease enter correct email id</span>");
+			$('#modal-generic').modal('show');
+			event.preventDefault();
+			event.stopPropagation();
+		return;
+
+		}
+
+		if ( $('#g-recaptcha-response-2').val() === '' ) {
+			event.preventDefault()
+			event.stopPropagation()
+			$("#modal-generic .modal-body").html("<span class='alert alert-warning m-3'>Captcha not Verified as Human!</span>");
+			$('#modal-generic').modal('show');
+			return;
+		}
+
+    });
+</script>
+
+
+{%endblock%}
